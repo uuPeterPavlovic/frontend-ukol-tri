@@ -5,6 +5,7 @@ import Plus4U5Elements from "uu_plus4u5g02-elements";
 import { withRoute } from "uu_plus4u5g02-app";
 
 import Config from "./config/config.js";
+import Tile from "../bricks/shopping-list-details/tile";
 import WelcomeRow from "../bricks/welcome-row.js";
 import RouteBar from "../core/route-bar.js";
 import importLsi from "../lsi/import-lsi.js";
@@ -41,15 +42,7 @@ let Home = createVisualComponent({
 
   render() {
     //@@viewOn:render
-    return (
-      <div>
-        <h1>Shopping list details</h1>
-        <div>
-          <b>Maslo </b>
-          <i>kravske</i>
-        </div>
-      </div>
-    );
+    return <Tile />
     //@@viewOff:render
   },
 });
