@@ -1,6 +1,6 @@
 //@@viewOn:imports
-import { createVisualComponent } from "uu5g05";
-import { Box, Text, Line, Button } from "uu5g05-elements";
+import { createVisualComponent, PropTypes, Utils } from "uu5g05";
+import { Box, Text, Line, Button, DateTime } from "uu5g05-elements";
 import Config from "./config/config.js";
 //@@viewOff:imports
 
@@ -9,51 +9,70 @@ const Tile = createVisualComponent({
   uu5Tag: Config.TAG + "Tile",
   //@@viewOff:statics
 
-  render() {
+  //@@viewOn:propTypes
+  propTypes: {
+    shoppinglistdetails: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      text: PropTypes.string,
+      imageUrl: PropTypes.string,
+      averageRating: PropTypes.number.isRequired,
+      uuIdentityName: PropTypes.string.isRequired,
+      sys: PropTypes.shape({
+        cts: PropTypes.string,
+      }),
+    }).isRequired,
+    onUpdate: PropTypes.func,
+    onDelete: PropTypes.func,
+  },
+  //@@viewOff:propTypes
+
+  //@@viewOn:defaultProps
+  defaultProps: {
+    onUpdate: () => {},
+    onDelete: () => {},
+  },
+  //@@viewOff:defaultProps
+
+  render(props) {
     //@@viewOn:private
-    function handleDelete() {
-      alert("I can't delete Shopping List Details. I'm dumb visual component.");
+    function handleDelete(event) {
+      props.onDelete(new Utils.Event(props.shoppinglistdetails, event));
     }
 
-    function handleUpdate() {
-      alert("I can't update Shopping List Details. I'm dumb visual component.");
+    function handleUpdate(event) {
+      props.onUpdate(new Utils.Event(props.shoppinglistdetails, event));
     }
     //@@viewOff:private
 
     //@@viewOn:render
+    const { elementProps } = Utils.VisualComponent.splitProps(props);
+
     return (
-      <Box style={{ width: 640, margin: "24px auto" }}>
+      <Box {...elementProps}>
         <Text category="interface" segment="title" type="minor" colorScheme="building">
-          Shopping List Details
+          {props.shoppinglistdetails.name}
         </Text>
         <div>
           <Text category="interface" segment="content" type="medium" colorScheme="building">
-            Shopping List WEEKEND
+            {props.shoppinglistdetails.text}
           </Text>
         </div>
-       
         <div>
-        <img src="https://picsum.photos/id/164/640/320" />
-      </div>
-        
+          <img src={props.shoppinglistdetails.imageUrl} />
+        </div>
         <Line significance="subdued" />
         <div>
           <Text category="interface" segment="content" type="medium" significance="subdued" colorScheme="building">
-            Přihlášen:
+            {props.shoppinglistdetails.uuIdentityName}
           </Text>
         </div>
         <div>
           <Text category="interface" segment="content" type="medium" significance="subdued" colorScheme="building">
-            Jan Novak - vlastník
-          </Text>
-        </div>
-        <div>
-          <Text category="interface" segment="content" type="medium" significance="subdued" colorScheme="building">
-            05.11.2023
+            <DateTime value={props.shoppinglistdetails.sys.cts} />
           </Text>
         </div>
         <Box significance="distinct">
-          Aktualizace seznamu, včetně položek a členů
+          {`Average rating: ${props.shoppinglistdetails.averageRating.toFixed(props.shoppinglistdetails.averageRating % 1 ? 1 : 0)} / 5`}
           <Button icon="mdi-pencil" onClick={handleUpdate} significance="subdued" tooltip="Update" />
           <Button icon="mdi-delete" onClick={handleDelete} significance="subdued" tooltip="Delete" />
         </Box>

@@ -44,12 +44,12 @@ const ListView = createVisualComponent({
       try {
         props.onDelete(shoppingList);
         addAlert({
-          message: `The shopping list ${shoppingList.name} has been deleted.`,
+          message: `The shopping list ${joke.name} has been deleted.`,
           priority: "success",
           durationMs: 2000,
         });
       } catch (error) {
-        ListView.logger.error("Error deleting shoppinglist", error);
+        ListView.logger.error("Error deleting shopping list", error);
         showError(error, "shopping list delete failed!");
       }
     }
@@ -58,7 +58,7 @@ const ListView = createVisualComponent({
       try {
         props.onUpdate(event.data);
       } catch (error) {
-        ListView.logger.error("Error updating shopping list", error);
+        ListView.logger.error("Error updating shoppipng list", error);
         showError(error, "shopping list update failed!");
       }
     }
