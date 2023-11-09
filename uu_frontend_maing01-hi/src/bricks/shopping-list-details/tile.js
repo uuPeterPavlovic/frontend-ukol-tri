@@ -31,27 +31,29 @@ const Tile = createVisualComponent({
             Shopping List WEEKEND
           </Text>
         </div>
+       
         <div>
-          <img src="https://picsum.photos/id/164/640/320" />
-        </div>
+        <img src="https://picsum.photos/id/164/640/320" />
+      </div>
+        
         <Line significance="subdued" />
         <div>
           <Text category="interface" segment="content" type="medium" significance="subdued" colorScheme="building">
-            IT, sport, hardware
+            Přihlášen:
           </Text>
         </div>
         <div>
           <Text category="interface" segment="content" type="medium" significance="subdued" colorScheme="building">
-            Jan Novák
+            Jan Novak - vlastník
           </Text>
         </div>
         <div>
           <Text category="interface" segment="content" type="medium" significance="subdued" colorScheme="building">
-            17.03.2022
+            05.11.2023
           </Text>
         </div>
         <Box significance="distinct">
-          Average rating: 3 / 5
+          Aktualizace seznamu, včetně položek a členů
           <Button icon="mdi-pencil" onClick={handleUpdate} significance="subdued" tooltip="Update" />
           <Button icon="mdi-delete" onClick={handleDelete} significance="subdued" tooltip="Delete" />
         </Box>
