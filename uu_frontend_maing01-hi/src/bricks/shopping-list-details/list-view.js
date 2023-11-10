@@ -44,7 +44,7 @@ const ListView = createVisualComponent({
       try {
         props.onDelete(shoppingList);
         addAlert({
-          message: `The shopping list ${joke.name} has been deleted.`,
+          message: `The shopping list ${shoppingList.name} has been deleted.`,
           priority: "success",
           durationMs: 2000,
         });
