@@ -1,31 +1,31 @@
 //@@viewOn:imports
-import { createComponent, Utils } from "uu5g05";
+import { createComponent, Utils, useState } from "uu5g05";
 import Config from "./config/config";
 //@@viewOff:imports
 
-let shoppingList = [
+const initialShoppingList = [
   {
     id: Utils.String.generateId(),
-    name: "Shopping list 1",
-    text: "nákupní seznam číslo jedna",
+    name: "nákupní seznam 1!",
+    text: "Why did the bunny eat the wedding ring? Because he heard it was 18 carrots!",
     averageRating: 4,
-    uuIdentityName: "Jana",
+    uuIdentityName: "John Smith",
     sys: { cts: "2022-03-17T09:48:38.990Z" },
   },
   {
     id: Utils.String.generateId(),
-    name: "Shopping list 2",
-    text: "nákupný seznam číslo dva",
+    name: "nákupní seznam dva",
+    text: "I love the F5 key. It´s just so refreshing.",
     averageRating: 3,
-    uuIdentityName: "Michal",
+    uuIdentityName: "Harry Potter",
     sys: { cts: "2022-02-14T10:48:38.990Z" },
   },
   {
     id: Utils.String.generateId(),
-    name: "Shopping list 3",
-    text: "nákupný seznam číslo tři",
+    name: "nákupní seznam tři",
+    text: "nákup",
     averageRating: 1,
-    uuIdentityName: "Jana",
+    uuIdentityName: "Bart Simpson",
     sys: { cts: "2021-02-14T10:48:38.990Z" },
   },
 ];
@@ -45,17 +45,34 @@ const ListProvider = createComponent({
 
   render(props) {
     //@@viewOn:private
-    function remove(shoppingList) {
-      shoppingList = shoppingList.filter((item) => item.id !== shoppingList.id);
+    const [ShoppingList, setShoppingList] = useState(initialShoppingList);
+
+    function remove(setShoppingList) {
+      setShoppingList((prevShoppingList) => prevShoppingList.filter((item) => item.id !== ShoppingList.id));
+    }
+
+    function create(values) {
+      const ShoppingList = {
+        ...values,
+        id: Utils.String.generateId(),
+        averageRating: Math.round(Math.random() * 5), // <0, 5>
+        uuIdentityName: "Gerald of Rivia",
+        sys: {
+          cts: new Date().toISOString(),
+        },
+      };
+
+      setShoppingList((prevShoppingList) => [...prevShoppingList, ShoppingList]);
+      return ShoppingList;
     }
 
     function update() {
-      throw new Error("shopping list update is not implemented yet.");
+      throw new Error("Shopping list update is not implemented yet.");
     }
     //@@viewOff:private
 
     //@@viewOn:render
-    const value = { shoppingList, remove, update };
+    const value = { ShoppingList, remove, update, create };
     return typeof props.children === "function" ? props.children(value) : props.children;
     //@@viewOff:render
   },

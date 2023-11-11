@@ -12,7 +12,7 @@ const ListView = createVisualComponent({
 
   //@@viewOn:propTypes
   propTypes: {
-    shoppingList: PropTypes.array.isRequired,
+    ShoppingList: PropTypes.array.isRequired,
     onUpdate: PropTypes.func,
     onDelete: PropTypes.func,
   },
@@ -20,7 +20,7 @@ const ListView = createVisualComponent({
 
   //@@viewOn:defaultProps
   defaultProps: {
-    shoppingList: [],
+    ShoppingList: [],
     onUpdate: () => {},
     onDelete: () => {},
   },
@@ -39,18 +39,18 @@ const ListView = createVisualComponent({
     }
 
     function handleDelete(event) {
-      const shoppingList = event.data;
+      const ShoppingList = event.data;
 
       try {
-        props.onDelete(shoppingList);
+        props.onDelete(ShoppingList);
         addAlert({
-          message: `The shopping list ${shoppingList.name} has been deleted.`,
+          message: `The Shopping list ${ShoppingList.name} has been deleted.`,
           priority: "success",
           durationMs: 2000,
         });
       } catch (error) {
-        ListView.logger.error("Error deleting shopping list", error);
-        showError(error, "shopping list delete failed!");
+        ListView.logger.error("Error deleting Shopping list", error);
+        showError(error, "Shopping list delete failed!");
       }
     }
 
@@ -59,7 +59,7 @@ const ListView = createVisualComponent({
         props.onUpdate(event.data);
       } catch (error) {
         ListView.logger.error("Error updating shoppipng list", error);
-        showError(error, "shopping list update failed!");
+        showError(error, "Shopping list update failed!");
       }
     }
     //@@viewOff:private
@@ -69,10 +69,10 @@ const ListView = createVisualComponent({
 
     return (
       <div {...attrs}>
-        {props.shoppingList.map((shoppingList) => (
+        {props.ShoppingList.map((ShoppingList) => (
           <Tile
-            key={shoppingList.id}
-            shoppingList={shoppingList}
+            key={ShoppingList.id}
+            ShoppingList={ShoppingList}
             onDelete={handleDelete}
             onUpdate={handleUpdate}
             style={{ width: 640, margin: "24px auto" }}

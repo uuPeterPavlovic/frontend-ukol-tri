@@ -5,6 +5,7 @@ import Config from "./config/config.js";
 import RouteBar from "../core/route-bar";
 import ListProvider from "../bricks/shopping-list-details/list-provider";
 import ListView from "../bricks/shopping-list-details/list-view";
+import CreateView from "../bricks/shopping-list-details/create-view";
 //@@viewOff:imports
 
 let Home = createVisualComponent({
@@ -18,7 +19,12 @@ let Home = createVisualComponent({
       <>
         <RouteBar />
         <ListProvider>
-          {({ shoppingList, remove, update }) => <ListView shoppingList={shoppingList} onDelete={remove} onUpdate={update} />}
+          {({ ShoppingList, remove, update, create }) => (
+            <>
+              <CreateView onCreate={create} style={{ maxWidth: 400, margin: "24px auto", display: "block" }} />
+              <ListView ShoppingList={ShoppingList} onDelete={remove} onUpdate={update} />
+            </>
+          )}
         </ListProvider>
       </>
     );
