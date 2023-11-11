@@ -8,9 +8,9 @@ import ListView from "../bricks/shopping-list-details/list-view";
 import CreateView from "../bricks/shopping-list-details/create-view";
 //@@viewOff:imports
 
-let ShoppingList = createVisualComponent({
+let shoppinglistdetails = createVisualComponent({
   //@@viewOn:statics
-  uu5Tag: Config.TAG + "Shopping List Details",
+  uu5Tag: Config.TAG + "shoppinglistdetails",
   //@@viewOff:statics
 
   render() {
@@ -32,9 +32,9 @@ let ShoppingList = createVisualComponent({
   },
 });
 
-ShoppingList = withRoute(ShoppingList, { authenticated: true });
+shoppinglistdetails = withRoute(shoppinglistdetails, { authenticated: true });
 
 //@@viewOn:exports
-export { ShoppingList };
-export default ShoppingList;
+export { shoppinglistdetails };
+export default shoppinglistdetails;
 //@@viewOff:exports
