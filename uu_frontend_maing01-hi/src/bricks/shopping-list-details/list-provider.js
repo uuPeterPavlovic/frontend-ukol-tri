@@ -56,7 +56,7 @@ const ListProvider = createComponent({
         ...values,
         id: Utils.String.generateId(),
         averageRating: Math.round(Math.random() * 5), // <0, 5>
-        uuIdentityName: "Gerald of Rivia",
+        uuIdentityName: "užívatel",
         sys: {
           cts: new Date().toISOString(),
         },

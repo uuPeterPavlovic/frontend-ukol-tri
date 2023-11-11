@@ -1,7 +1,7 @@
 {
-  "appName": "Application uuFrontend",
+  "appName": "Application Shopping Lists",
   "About": {
-    "header": "About application uuFrontend",
+    "header": "About application Shopping Lists",
     "creatorsHeader": "Application creators",
     "termsOfUse": "Terms of use"
   },
@@ -31,6 +31,7 @@
   },
   "Menu": {
     "home": "Welcome",
-    "about": "About Application"
+    "about": "About Application",
+    "shoppinglistdetails": "Shopping List Details"
   }
 }
