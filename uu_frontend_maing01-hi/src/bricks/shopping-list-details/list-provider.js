@@ -9,7 +9,7 @@ const initialShoppingList = [
     name: "nákupní seznam 100",
     text: "LoremIpsum XYZ",
     averageRating: 4,
-    uuIdentityName: "Angelina",
+    uuIdentityName: "Vlastník: Angelina",
     sys: { cts: "2022-03-17T09:48:38.990Z" },
   },
   {
@@ -17,7 +17,7 @@ const initialShoppingList = [
     name: "nákupní seznam 200",
     text: "LoremIpsum ABC",
     averageRating: 3,
-    uuIdentityName: "Honza",
+    uuIdentityName: "Vlastník: Honza",
     sys: { cts: "2022-02-14T10:48:38.990Z" },
   },
   {
@@ -25,7 +25,7 @@ const initialShoppingList = [
     name: "nákupní seznam 300",
     text: "nákup",
     averageRating: 1,
-    uuIdentityName: "Angelina",
+    uuIdentityName: "Vlastník: Angelina",
     sys: { cts: "2021-02-14T10:48:38.990Z" },
   },
 ];
@@ -56,7 +56,7 @@ const ListProvider = createComponent({
         ...values,
         id: Utils.String.generateId(),
         averageRating: Math.round(Math.random() * 5), // <0, 5>
-        uuIdentityName: "užívatel",
+        uuIdentityName: "Vlastník: ",
         sys: {
           cts: new Date().toISOString(),
         },

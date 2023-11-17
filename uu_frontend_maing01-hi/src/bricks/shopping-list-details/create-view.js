@@ -57,7 +57,7 @@ const CreateView = createVisualComponent({
       addAlert({
         message: `shopping list ${ShoppingList.name} has been created.`,
         priority: "success",
-        durationMs: 2000,
+        durationMs: 3000,
       });
 
       setMode(Mode.BUTTON);
