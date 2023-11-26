@@ -9,7 +9,8 @@ const initialShoppingList = [
     name: "nákupní seznam číslo 1",
     text: "víkend",
     averageRating: 4,
-    uuIdentityName: "Vlastník: Angelina",
+    uuIdentityName: "Vlastník: Angelina, stav: archivován",
+    archived: true,
     sys: { cts: "2022-03-17T09:48:38.990Z" },
   },
   {
@@ -17,7 +18,8 @@ const initialShoppingList = [
     name: "nákupní seznam číslo 2",
     text: "řeznictví",
     averageRating: 3,
-    uuIdentityName: "Vlastník: Honza",
+    uuIdentityName: "Vlastník: Honza, stav: aktivní-nearchivován",
+    archived: false,
     sys: { cts: "2022-02-14T10:48:38.990Z" },
   },
   {
@@ -25,7 +27,8 @@ const initialShoppingList = [
     name: "nákupní seznam číslo 3",
     text: "vánoce",
     averageRating: 1,
-    uuIdentityName: "Vlastník: Angelina",
+    uuIdentityName: "Vlastník: Angelina, stav: archivován",
+    archived: true,
     sys: { cts: "2021-02-14T10:48:38.990Z" },
   },
 ];

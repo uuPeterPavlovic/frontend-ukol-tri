@@ -1,6 +1,6 @@
 //@@viewOn:imports
 import { createVisualComponent, PropTypes, Utils } from "uu5g05";
-import { useAlertBus } from "uu5g05-elements";
+import { useAlertBus, Button } from "uu5g05-elements";
 import Tile from "./tile";
 import Config from "./config/config.js";
 //@@viewOff:imports
@@ -68,8 +68,13 @@ const ListView = createVisualComponent({
     const attrs = Utils.VisualComponent.getAttrs(props);
 
     return (
+      
       <div {...attrs}>
-        {props.ShoppingList.map((ShoppingList) => (
+        <Button>Filter nearchivované / všechny</Button>
+        <br></br>
+        <br></br>
+        <Button>Vytvořit seznam v modálním okně</Button>
+        {props.ShoppingList.filter(item => item.archived).map((ShoppingList) => (
           <Tile
             key={ShoppingList.id}
             ShoppingList={ShoppingList}
@@ -78,6 +83,7 @@ const ListView = createVisualComponent({
             style={{ width: 640, margin: "24px auto" }}
           />
         ))}
+        
       </div>
     );
     //@@viewOff:render
