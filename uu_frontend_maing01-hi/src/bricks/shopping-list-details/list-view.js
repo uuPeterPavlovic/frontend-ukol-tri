@@ -1,5 +1,5 @@
 //@@viewOn:imports
-import { createVisualComponent, PropTypes, Utils } from "uu5g05";
+import { createVisualComponent, PropTypes, Utils, useState } from "uu5g05";
 import { useAlertBus, Button } from "uu5g05-elements";
 import Tile from "./tile";
 import Config from "./config/config.js";
@@ -67,10 +67,14 @@ const ListView = createVisualComponent({
     //@@viewOn:render
     const attrs = Utils.VisualComponent.getAttrs(props);
 
+    const [filtr, setFiltr] = useState(false);
+        console.log("ve filtru je:", filtr);
+
     return (
       
       <div {...attrs}>
-        <Button>Filter nearchivované / všechny</Button>
+
+        <Button onClick = { () => setFiltr(true)}> Filter nearchivované / všechny</Button>
         <br></br>
         <br></br>
         <Button>Vytvořit seznam v modálním okně</Button>
