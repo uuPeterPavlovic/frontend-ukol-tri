@@ -70,6 +70,7 @@ const ListView = createVisualComponent({
     const [filtr, setFiltr] = useState(false);
     function handleClick () {
       setFiltr(!filtr);
+    
     }
         console.log("ve filtru je:", filtr);
 
@@ -81,7 +82,7 @@ const ListView = createVisualComponent({
         <br></br>
         <Button>Vytvořit seznam v modálním okně</Button>
 
-        {props.ShoppingList.filter(item => filtr == true ? !item.archived : item.archived).map((ShoppingList) => (
+        {props.ShoppingList.filter(item => filtr == true ? !item.true : !item.archived).map((ShoppingList) => (
           <Tile
             key={ShoppingList.id}
             ShoppingList={ShoppingList}
