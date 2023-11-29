@@ -76,11 +76,12 @@ const ListView = createVisualComponent({
     return (
       
       <div {...attrs}>
-        <Button onClick = { () => setFiltr(!filtr)}> Filter nearchivované / všechny</Button>
+        <Button onClick = { () => setFiltr(!filtr)}> Filtr nearchivované / všechny</Button>
         <br></br>
         <br></br>
         <Button>Vytvořit seznam v modálním okně</Button>
-        {props.ShoppingList.filter(item => item.archived).map((ShoppingList) => (
+
+        {props.ShoppingList.filter(item => filtr == true ? !item.archived : item.archived).map((ShoppingList) => (
           <Tile
             key={ShoppingList.id}
             ShoppingList={ShoppingList}
