@@ -68,13 +68,15 @@ const ListView = createVisualComponent({
     const attrs = Utils.VisualComponent.getAttrs(props);
 
     const [filtr, setFiltr] = useState(false);
+    function handleClick () {
+      setFiltr(!filtr);
+    }
         console.log("ve filtru je:", filtr);
 
     return (
       
       <div {...attrs}>
-
-        <Button onClick = { () => setFiltr(true)}> Filter nearchivované / všechny</Button>
+        <Button onClick = { () => setFiltr(!filtr)}> Filter nearchivované / všechny</Button>
         <br></br>
         <br></br>
         <Button>Vytvořit seznam v modálním okně</Button>
